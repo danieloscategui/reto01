@@ -5,8 +5,10 @@ import com.entelgy.reto01.external.ApiClient;
 import com.entelgy.reto01.external.model.User;
 import com.entelgy.reto01.external.model.UserApiResponse;
 import com.entelgy.reto01.model.UserDto;
+import com.entelgy.reto01.util.DateUtil;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -23,7 +25,7 @@ public class UserService {
         UserApiResponse userApiResponse = apiClient.getExternalUsers();
         Set<UserDto> data = convert(userApiResponse.getData());
         UserResponse userResponse = new UserResponse();
-        userResponse.setOperationDate("fecha");
+        userResponse.setOperationDate(DateUtil.getISO8601DateTimeFormatted(LocalDateTime.now()));
         userResponse.setData(data);
         return userResponse;
     }
