@@ -25,6 +25,8 @@ public class UserControllerTest {
     public void testPostUserExistData() throws Exception {
         mockMvc.perform(post("/reto")).andExpect(status().isOk())
                 .andExpect(jsonPath("$.data").exists())
-                .andExpect(jsonPath("$.data[*].id").isNotEmpty());
+                .andExpect(jsonPath("$.data[*].id").isNotEmpty())
+                .andExpect(jsonPath("$.data[*].last_name[0]").isString())
+                .andExpect(jsonPath("$.data[*].email[0]").isString());
     }
 }
