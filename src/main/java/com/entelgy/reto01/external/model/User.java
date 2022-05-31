@@ -1,4 +1,4 @@
-package com.entelgy.reto01.model;
+package com.entelgy.reto01.external.model;
 
 public class User {
     private Integer id;
