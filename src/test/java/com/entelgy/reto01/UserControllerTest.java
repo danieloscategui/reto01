@@ -64,7 +64,7 @@ public class UserControllerTest {
         userApiResponse.setPer_page(1);
         userApiResponse.setTotal(1);
         userApiResponse.setTotal_pages(10);
-        userApiResponse.setData(new HashSet<>());
+        userApiResponse.setData(null);
         return userApiResponse;
     }
 }

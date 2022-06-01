@@ -1,12 +1,10 @@
 package com.entelgy.reto01.api.response;
 
-import com.entelgy.reto01.model.UserDto;
-
-import java.util.Set;
+import java.util.List;
 
 public class UserResponse {
     private String operationDate;
-    private Set<String> data;
+    private List<String> data;
 
     public String getOperationDate() {
         return operationDate;
@@ -16,11 +14,11 @@ public class UserResponse {
         this.operationDate = operationDate;
     }
 
-    public Set<String> getData() {
+    public List<String> getData() {
         return data;
     }
 
-    public void setData(Set<String> data) {
+    public void setData(List<String> data) {
         this.data = data;
     }
 }

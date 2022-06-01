@@ -1,13 +1,13 @@
 package com.entelgy.reto01.external.model;
 
-import java.util.Set;
+import java.util.List;
 
 public class UserApiResponse {
     private Integer page;
     private Integer per_page;
     private Integer total;
     private Integer total_pages;
-    private Set<User> data;
+    private List<User> data;
 
     private Support support;
 
@@ -43,11 +43,11 @@ public class UserApiResponse {
         this.total_pages = total_pages;
     }
 
-    public Set<User> getData() {
+    public List<User> getData() {
         return data;
     }
 
-    public void setData(Set<User> data) {
+    public void setData(List<User> data) {
         this.data = data;
     }
 
