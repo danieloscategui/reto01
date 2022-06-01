@@ -11,7 +11,6 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.Collections;
 
-@Component
 public class ApiClient {
     private String apiExternalUrl;
 

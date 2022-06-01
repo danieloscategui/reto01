@@ -14,5 +14,7 @@
     <context:component-scan base-package="com.entelgy.reto01"/>
     <mvc:annotation-driven/>
 
+    <bean class="com.entelgy.reto01.external.ApiClient"/>
+    <bean class="com.entelgy.reto01.service.UserService"/>
 
 </beans>

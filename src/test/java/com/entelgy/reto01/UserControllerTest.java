@@ -8,6 +8,7 @@ import org.mockito.stubbing.OngoingStubbing;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.context.annotation.ImportResource;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
@@ -25,7 +26,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @WebMvcTest(controllers = UserController.class)
-@ImportResource("classpath:app-config.xml")
 public class UserControllerTest {
 
     @Autowired
@@ -54,10 +54,7 @@ public class UserControllerTest {
     @Test
     public void testPostUserExistData() throws Exception {
         mockMvc.perform(post("/reto")).andExpect(status().isOk())
-                .andExpect(jsonPath("$.data").exists())
-                .andExpect(jsonPath("$.data[*].id").isNotEmpty())
-                .andExpect(jsonPath("$.data[*].last_name[0]").isString())
-                .andExpect(jsonPath("$.data[*].email[0]").isString());
+                .andExpect(jsonPath("$.data").isArray());
     }
 
     private UserApiResponse getMock() {
