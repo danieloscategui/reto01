@@ -34,11 +34,14 @@ public class UserControllerTest {
     private RestTemplate restTemplate;
 
     @Test
-    public void test() throws Exception {
+    public void testPostUserWithMockRestTemplate() throws Exception {
         ResponseEntity<UserApiResponse> response = new ResponseEntity<>(getMock(), HttpStatus.OK);
         when(restTemplate.exchange(
-                "http://localhost:8080/employee/E001", eq(HttpMethod.GET), any(HttpEntity.class), eq(UserApiResponse.class)))
-                .thenReturn(new ResponseEntity<>(getMock(), HttpStatus.OK));
+                eq("https://reqres.in/api/users"),
+                eq(HttpMethod.GET),
+                any(HttpEntity.class),
+                eq(UserApiResponse.class)))
+                .thenReturn(response);
         mockMvc.perform(post("/reto")).andExpect(status().isOk());
     }
 
