@@ -11,7 +11,7 @@ public class DateUtil {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ssZ");
         return ZonedDateTime.now().format(formatter);
     }
-    
+
     public static String getCurrentDateFormatted() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         return formatter.format(LocalDate.now());
