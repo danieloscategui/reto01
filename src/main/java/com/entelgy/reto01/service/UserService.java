@@ -23,22 +23,18 @@ public class UserService {
 
     public UserResponse processData() {
         UserApiResponse userApiResponse = apiClient.getExternalUsers();
-        Set<UserDto> data = convert(userApiResponse.getData());
+        Set<String> data = convert(userApiResponse.getData());
         UserResponse userResponse = new UserResponse();
         userResponse.setOperationDate(DateUtil.getISO8601DateTimeFormatted(LocalDateTime.now()));
         userResponse.setData(data);
         return userResponse;
     }
 
-    private Set<UserDto> convert(Set<User> userApiResponse) {
-        return userApiResponse.stream().map(this::toDto).collect(Collectors.toSet());
+    private Set<String> convert(Set<User> userApiResponse) {
+        return userApiResponse.stream().map(this::joinData).collect(Collectors.toSet());
     }
 
-    private UserDto toDto(User user) {
-        UserDto dto = new UserDto();
-        dto.setId(user.getId());
-        dto.setLast_name(user.getLast_name());
-        dto.setEmail(user.getEmail());
-        return dto;
+    private String joinData(User user) {
+        return String.join("|", String.valueOf(user.getId()), user.getLast_name(), user.getEmail());
     }
 }

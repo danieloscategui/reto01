@@ -6,7 +6,7 @@ import java.util.Set;
 
 public class UserResponse {
     private String operationDate;
-    private Set<UserDto> data;
+    private Set<String> data;
 
     public String getOperationDate() {
         return operationDate;
@@ -16,11 +16,11 @@ public class UserResponse {
         this.operationDate = operationDate;
     }
 
-    public Set<UserDto> getData() {
+    public Set<String> getData() {
         return data;
     }
 
-    public void setData(Set<UserDto> data) {
+    public void setData(Set<String> data) {
         this.data = data;
     }
 }
