@@ -29,10 +29,10 @@ public class UserServiceTest {
     private UserService userService;
 
     @Test
-    public void test() throws RestException, UserServiceException {
+    public void testProcessData() throws RestException, UserServiceException {
         when(this.userConverter.convert(anyList())).thenReturn(Collections.singletonList("a|a|a"));
         when(this.apiClient.getExternalUsers()).thenReturn(getUserApiResponseMock());
-        assertNotNull(userService.processData(), "sample");
+        assertNotNull(userService.processData(), "ProcessDate fail test");
     }
 
     private List<User> getUsersMock() {
